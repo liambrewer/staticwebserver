@@ -1,8 +1,8 @@
 class Request
   attr_accessor :method, :path, :http_protocol
 
-  # @param [String] request
-  def initialize(request)
-    @method, @path, @http_protocol = request.split
+  # @param [TCPSocket] socket
+  def initialize(socket)
+    @method, @path, @http_protocol = socket.gets.split " ", 3
   end
 end
